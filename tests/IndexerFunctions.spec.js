@@ -10,5 +10,16 @@ describe("BasicIndexer.js", function () {
     expect(createIndexedObjectCollection).to.exist;
   });
 
-  
+  describe("createIndexedObjectCollection", function () {
+    it("Should return an object", function () {
+      const array = [
+        {
+          id: 1,
+          name: "someName",
+        },
+      ];
+      expect(createIndexedObjectCollection(array)).to.be.an("object");
+    });
+    
+  });
 });
