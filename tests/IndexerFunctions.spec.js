@@ -20,6 +20,26 @@ describe("BasicIndexer.js", function () {
       ];
       expect(createIndexedObjectCollection(array)).to.be.an("object");
     });
-    
+    it("Should return the correct indexed collection", function () {
+      const array = [
+        {
+          id: 1,
+          name: "someName",
+        },
+        {
+          id: 3,
+          name: "someName",
+        },
+        {
+          id: 2,
+          name: "someName",
+        },
+      ];
+      expect(createIndexedObjectCollection(array)).to.deep.equal({
+        1: { name: "someName" },
+        3: { name: "someName" },
+        2: { name: "someName" },
+      });
+    });
   });
 });
