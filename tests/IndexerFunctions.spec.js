@@ -41,5 +41,22 @@ describe("BasicIndexer.js", function () {
         2: { name: "someName" },
       });
     });
+    it("Should throw: Repeated keys aren't allowed error", function () {
+      const array = [
+        {
+          id: 1,
+          name: "someName1",
+        },
+        {
+          id: 1,
+          name: "someName2",
+        },
+        {
+          id: 2,
+          name: "someName",
+        },
+      ];
+      expect(() => createIndexedObjectCollection(array)).to.throw("Repeated keys aren't allowed");
+    });
   });
 });
