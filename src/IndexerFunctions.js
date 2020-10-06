@@ -1,4 +1,4 @@
-function createIndexedObjectCollection(array, keyToIndex) {
+function createIndexedObjectCollection(array, keyToIndex = "id") {
   let indexedObjectCollection = {};
   array.forEach((arrayElement) => {
     const index = arrayElement[keyToIndex];
