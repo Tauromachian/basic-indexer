@@ -2,7 +2,7 @@ const chai = require("chai");
 const expect = chai.expect;
 chai.should();
 
-const BasicIndexer = require("../src/BasicIndexer");
+const Indexer = require("../src/Indexer");
 
 describe("BasicIndexer.js", function () {
   it("Should exist", function () {
