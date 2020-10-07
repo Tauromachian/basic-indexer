@@ -1,7 +1,7 @@
-const BasicIndexer = require("./BasicIndexer");
+const Indexer = require("./Indexer");
 const IndexerFunctions = require("./IndexerFunctions");
 
 module.exports = {
-  BasicIndexer,
+  Indexer,
   IndexerFunctions
 };
