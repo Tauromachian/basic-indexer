@@ -88,5 +88,27 @@ describe("IndexerFunctions.js", function () {
     it("Should exist", function () {
       expect(toArray).to.exist;
     });
+    it("Should return the correct array", function () {
+      expect(
+        toArray({
+          1: { id: 1, name: "someName" },
+          3: { id: 3, name: "someName" },
+          2: { id: 2, name: "someName" },
+        })
+      ).to.be.deep.equal([
+        {
+          id: 1,
+          name: "someName",
+        },
+        {
+          id: 2,
+          name: "someName",
+        },
+        {
+          id: 3,
+          name: "someName",
+        },
+      ]);
+    });
   });
 });
