@@ -58,5 +58,26 @@ describe("BasicIndexer.js", function () {
       ];
       expect(() => makeIndexedCollection(array)).to.throw("Repeated keys aren't allowed");
     });
+    it("Should keep the index in each element", function () {
+      const array = [
+        {
+          id: 1,
+          name: "someName",
+        },
+        {
+          id: 3,
+          name: "someName",
+        },
+        {
+          id: 2,
+          name: "someName",
+        },
+      ];
+      expect(makeIndexedCollection(array, "id", true)).to.deep.equal({
+        1: { id: 1, name: "someName" },
+        3: { id: 3, name: "someName" },
+        2: { id: 2, name: "someName" },
+      });
+    });
   });
 });
