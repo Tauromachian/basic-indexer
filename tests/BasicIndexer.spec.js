@@ -9,7 +9,7 @@ describe("BasicIndexer.js", function () {
     expect(Indexer).to.exist;
   });
 
-  it("Should return the correct object", function () {
+  it("Should return the array object", function () {
     const index = new Indexer([
       {
         id: 1,
@@ -32,7 +32,7 @@ describe("BasicIndexer.js", function () {
     ]);
   });
 
-  it("Should return the correct object and keep the indexes", function () {
+  it("Should return the correct array and keep the indexes", function () {
     const index = new Indexer(
       [
         {
@@ -63,6 +63,42 @@ describe("BasicIndexer.js", function () {
       },
       {
         id: 3,
+        name: "someName",
+      },
+    ]);
+  });
+
+  it("Should return the array in the correct order", function () {
+    const index = new Indexer(
+      [
+        {
+          id: 1,
+          name: "someName",
+        },
+        {
+          id: 3,
+          name: "someName",
+        },
+        {
+          id: 2,
+          name: "someName",
+        },
+      ],
+      "id",
+      true
+    );
+
+    expect(index.get(1, 3, 2)).to.deep.equal([
+      {
+        id: 1,
+        name: "someName",
+      },
+      {
+        id: 3,
+        name: "someName",
+      },
+      {
+        id: 2,
         name: "someName",
       },
     ]);
