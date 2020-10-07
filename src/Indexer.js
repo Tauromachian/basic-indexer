@@ -3,9 +3,9 @@ const makeIndexedCollection = require("./IndexerFunctions")
 const toArray = require("./IndexerFunctions").toArray;
 
 class Indexer {
-  constructor(array, key = "id") {
+  constructor(array, key = "id", keepIndex = false) {
     this.index = key;
-    this.indexedCollection = makeIndexedCollection(array, key);
+    this.indexedCollection = makeIndexedCollection(array, key, keepIndex);
   }
 
   getArray() {
