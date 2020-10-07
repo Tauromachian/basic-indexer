@@ -31,4 +31,40 @@ describe("BasicIndexer.js", function () {
       { name: "someName" },
     ]);
   });
+
+  it("Should return the correct object and keep the indexes", function () {
+    const index = new Indexer(
+      [
+        {
+          id: 1,
+          name: "someName",
+        },
+        {
+          id: 3,
+          name: "someName",
+        },
+        {
+          id: 2,
+          name: "someName",
+        },
+      ],
+      "id",
+      true
+    );
+
+    expect(index.get(1, 2, 3)).to.deep.equal([
+      {
+        id: 1,
+        name: "someName",
+      },
+      {
+        id: 2,
+        name: "someName",
+      },
+      {
+        id: 3,
+        name: "someName",
+      },
+    ]);
+  });
 });
