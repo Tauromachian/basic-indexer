@@ -11,6 +11,16 @@ class BasicIndexer {
   getArray() {
     return toArray(this.indexedCollection, true, this.index);
   }
+
+  get(...indexes) {
+    indexes.map((index) => {
+      return this.indexedCollection[index];
+    });
+  }
+
+  set(index, object) {
+    this.indexedCollection[index] = object;
+  }
 }
 
 module.exports = BasicIndexer;
