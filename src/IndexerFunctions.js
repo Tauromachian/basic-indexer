@@ -39,12 +39,19 @@ function toArray(indexedCollection, addKey = false, keyToAdd = "id") {
     let object = {};
 
     if (addKey) {
-      object[keyToAdd] = key;
+      object[keyToAdd] = castToCorrectType(key);
     }
-
-    object = Object.assign(indexedCollection[key]);
+    
+    object = Object.assign(object, indexedCollection[key]);
     return object;
   });
+}
+
+function castToCorrectType(key) {
+  if (isNaN(key)) {
+    return key;
+  }
+  return Number(key);
 }
 
 module.exports = {
