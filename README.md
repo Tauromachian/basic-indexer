@@ -100,5 +100,5 @@ values contains:
   {
     id: 3,
     name: "someName",
-  },
+  }
 ]
