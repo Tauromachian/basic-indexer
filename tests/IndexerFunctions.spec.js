@@ -1,11 +1,12 @@
 const chai = require("chai");
+const IndexerFunctions = require("../src/IndexerFunctions");
 const expect = chai.expect;
 chai.should();
 
-const indexerFunction = require("../src/IndexerFunctions");
-const makeIndexedCollection = indexerFunction.makeIndexedCollection;
+const makeIndexedCollection = IndexerFunctions.makeIndexedCollection;
+const toArray = IndexerFunctions.toArray;
 
-describe("BasicIndexer.js", function () {
+describe("IndexerFunctions.js", function () {
   it("Should exist", function () {
     expect(makeIndexedCollection).to.exist;
   });
@@ -56,7 +57,9 @@ describe("BasicIndexer.js", function () {
           name: "someName",
         },
       ];
-      expect(() => makeIndexedCollection(array)).to.throw("Repeated keys aren't allowed");
+      expect(() => makeIndexedCollection(array)).to.throw(
+        "Repeated keys aren't allowed"
+      );
     });
     it("Should keep the index in each element", function () {
       const array = [
@@ -78,6 +81,12 @@ describe("BasicIndexer.js", function () {
         3: { id: 3, name: "someName" },
         2: { id: 2, name: "someName" },
       });
+    });
+  });
+
+  describe("toArray", function () {
+    it("Should exist", function () {
+      expect(toArray).to.exist;
     });
   });
 });
