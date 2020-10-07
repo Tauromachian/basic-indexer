@@ -13,7 +13,7 @@ class Indexer {
   }
 
   get(...indexes) {
-    indexes.map((index) => {
+    return indexes.map((index) => {
       return this.indexedCollection[index];
     });
   }
