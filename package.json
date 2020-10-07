@@ -11,6 +11,16 @@
     "start": "webpack -w",
     "test": "mocha tests/"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tauromachian/basic-indexer.git"
+  },
+  "keywords": [
+    "indexer",
+    "array",
+    "object",
+    "collection"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
