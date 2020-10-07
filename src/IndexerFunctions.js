@@ -1,15 +1,23 @@
-function makeIndexedCollection(array, keyToIndex = "id") {
+function makeIndexedCollection(array, keyToIndex = "id", keepIndex = false) {
   let indexedObjectCollection = {};
   array.forEach((arrayElement) => {
     const index = arrayElement[keyToIndex];
 
     throwErrorIfRepeated(indexedObjectCollection, index);
 
-    let arrayElementWithoutIndex = arrayElement;
-    delete arrayElementWithoutIndex.id;
-    indexedObjectCollection[index] = arrayElementWithoutIndex;
+    if (!keepIndex) {
+      arrayElement = deleteIndex(arrayElement, keyToIndex);
+    }
+
+    indexedObjectCollection[index] = arrayElement;
   });
   return indexedObjectCollection;
+}
+
+function deleteIndex(arrayElement, keyToIndex) {
+  let arrayElementWithoutIndex = arrayElement;
+  delete arrayElementWithoutIndex[keyToIndex];
+  return arrayElementWithoutIndex;
 }
 
 function throwErrorIfRepeated(indexedObjectCollection, index) {
