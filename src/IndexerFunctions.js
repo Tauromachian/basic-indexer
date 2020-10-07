@@ -33,6 +33,21 @@ function indexedCollectionContains(indexedCollection, key) {
   return false;
 }
 
+function toArray(indexedCollection, addKey = false, keyToAdd = "id") {
+  const keys = Object.keys(indexedCollection);
+  return keys.map((key) => {
+    let object = {};
+
+    if (addKey) {
+      object[keyToAdd] = key;
+    }
+
+    object = Object.assign(indexedCollection[key]);
+    return object;
+  });
+}
+
 module.exports = {
   makeIndexedCollection,
+  toArray
 };
