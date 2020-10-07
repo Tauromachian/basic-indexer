@@ -2,7 +2,7 @@ const makeIndexedCollection = require("./IndexerFunctions")
   .makeIndexedCollection;
 const toArray = require("./IndexerFunctions").toArray;
 
-class BasicIndexer {
+class Indexer {
   constructor(array, key = "id") {
     this.index = key;
     this.indexedCollection = makeIndexedCollection(array, key);
@@ -23,4 +23,4 @@ class BasicIndexer {
   }
 }
 
-module.exports = BasicIndexer;
+module.exports = Indexer;
