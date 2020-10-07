@@ -3,14 +3,14 @@ const expect = chai.expect;
 chai.should();
 
 const indexerFunction = require("../src/IndexerFunctions");
-const createIndexedObjectCollection = indexerFunction.createIndexedObjectCollection;
+const makeIndexedCollection = indexerFunction.makeIndexedCollection;
 
 describe("BasicIndexer.js", function () {
   it("Should exist", function () {
-    expect(createIndexedObjectCollection).to.exist;
+    expect(makeIndexedCollection).to.exist;
   });
 
-  describe("createIndexedObjectCollection", function () {
+  describe("makeIndexedCollection", function () {
     it("Should return an object", function () {
       const array = [
         {
@@ -18,7 +18,7 @@ describe("BasicIndexer.js", function () {
           name: "someName",
         },
       ];
-      expect(createIndexedObjectCollection(array)).to.be.an("object");
+      expect(makeIndexedCollection(array)).to.be.an("object");
     });
     it("Should return the correct indexed collection", function () {
       const array = [
@@ -35,7 +35,7 @@ describe("BasicIndexer.js", function () {
           name: "someName",
         },
       ];
-      expect(createIndexedObjectCollection(array)).to.deep.equal({
+      expect(makeIndexedCollection(array)).to.deep.equal({
         1: { name: "someName" },
         3: { name: "someName" },
         2: { name: "someName" },
@@ -56,7 +56,7 @@ describe("BasicIndexer.js", function () {
           name: "someName",
         },
       ];
-      expect(() => createIndexedObjectCollection(array)).to.throw("Repeated keys aren't allowed");
+      expect(() => makeIndexedCollection(array)).to.throw("Repeated keys aren't allowed");
     });
   });
 });
