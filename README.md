@@ -1,8 +1,8 @@
-#Basic Indexer
+# Basic Indexer
 
 The objective of this module is to create and manage a basic indexed collection
 
-##How to import
+## How to import
 
 CommonJS
 ```
@@ -19,7 +19,7 @@ Browser import the min.js file.
 <script type="text/javascript" src="basic-indexer.min.js"> 
 ```
 
-##How to use
+## How to use
 
 Methods:
 
@@ -28,7 +28,7 @@ Methods:
 - get(url, name)
 - set(name)
 
-###Examples
+### Examples
 
 Regular example
 
