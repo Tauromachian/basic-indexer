@@ -1,4 +1,4 @@
-function createIndexedObjectCollection(array, keyToIndex = "id") {
+function makeIndexedCollection(array, keyToIndex = "id") {
   let indexedObjectCollection = {};
   array.forEach((arrayElement) => {
     const index = arrayElement[keyToIndex];
@@ -22,5 +22,5 @@ function indexedCollectionContains(indexedCollection, key) {
 }
 
 module.exports = {
-  createIndexedObjectCollection,
+  makeIndexedCollection,
 };
