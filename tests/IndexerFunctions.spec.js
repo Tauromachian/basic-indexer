@@ -110,5 +110,27 @@ describe("IndexerFunctions.js", function () {
         },
       ]);
     });
+    it("Should add the key to the returned array elements", function () {
+      expect(
+        toArray({
+          1: { name: "someName" },
+          3: { name: "someName" },
+          2: { name: "someName" },
+        }, true)
+      ).to.be.deep.equal([
+        {
+          id: 1,
+          name: "someName",
+        },
+        {
+          id: 2,
+          name: "someName",
+        },
+        {
+          id: 3,
+          name: "someName",
+        },
+      ]);
+    });
   });
 });
