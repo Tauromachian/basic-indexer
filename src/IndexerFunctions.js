@@ -1,27 +1,27 @@
-function makeIndexedCollection(array, keyToIndex = "id", keepIndex = false) {
-  let indexedObjectCollection = {};
-  array.forEach((arrayElement) => {
-    const index = arrayElement[keyToIndex];
+function makeIndexedCollection(array, key = "id", keepIndex = false) {
+  let indexedCollection = {};
+  array.forEach((element) => {
+    const index = element[key];
 
-    throwErrorIfRepeated(indexedObjectCollection, index);
+    throwErrorIfRepeated(indexedCollection, index);
 
     if (!keepIndex) {
-      arrayElement = deleteIndex(arrayElement, keyToIndex);
+      element = deleteIndex(element, key);
     }
 
-    indexedObjectCollection[index] = arrayElement;
+    indexedCollection[index] = element;
   });
-  return indexedObjectCollection;
+  return indexedCollection;
 }
 
-function deleteIndex(arrayElement, keyToIndex) {
-  let arrayElementWithoutIndex = arrayElement;
-  delete arrayElementWithoutIndex[keyToIndex];
-  return arrayElementWithoutIndex;
+function deleteIndex(element, index) {
+  let elementWithoutIndex = element;
+  delete elementWithoutIndex[index];
+  return elementWithoutIndex;
 }
 
-function throwErrorIfRepeated(indexedObjectCollection, index) {
-  if (indexedCollectionContains(indexedObjectCollection, index)) {
+function throwErrorIfRepeated(indexedCollection, index) {
+  if (indexedCollectionContains(indexedCollection, index)) {
     throw new Error("Repeated keys aren't allowed");
   }
 }
