@@ -3,15 +3,19 @@ function makeIndexedCollection(array, keyToIndex = "id") {
   array.forEach((arrayElement) => {
     const index = arrayElement[keyToIndex];
 
-    if (indexedCollectionContains(indexedObjectCollection, index)) {
-      throw new Error("Repeated keys aren't allowed");
-    }
+    throwErrorIfRepeated(indexedObjectCollection, index);
 
     let arrayElementWithoutIndex = arrayElement;
     delete arrayElementWithoutIndex.id;
     indexedObjectCollection[index] = arrayElementWithoutIndex;
   });
   return indexedObjectCollection;
+}
+
+function throwErrorIfRepeated(indexedObjectCollection, index) {
+  if (indexedCollectionContains(indexedObjectCollection, index)) {
+    throw new Error("Repeated keys aren't allowed");
+  }
 }
 
 function indexedCollectionContains(indexedCollection, key) {
