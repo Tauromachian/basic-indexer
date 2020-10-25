@@ -5,17 +5,17 @@ The objective of this module is to create and manage a basic indexed collection
 ## How to import
 
 CommonJS
-```
+```js
 const BasicIndexer = require("basic-indexer");
 ```
 
 ES6 module syntax
-```
+```js
 import BasicIndexer from "basic-indexer";
 ```
 
 Browser import the min.js file.
-```
+```js
 <script type="text/javascript" src="basic-indexer.min.js"> 
 ```
 
@@ -33,7 +33,7 @@ Methods:
 Regular example
 
 index.js
-```
+```js
 const Indexer = require("basic-indexer").Indexer;
 
 const index = new Indexer([
@@ -62,7 +62,7 @@ values contains:
 
 Keeping the keys
 
-```
+```js
 const Indexer = require("basic-indexer").Indexer;
 
 const index = new Indexer(
