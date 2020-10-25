@@ -1,6 +1,6 @@
 {
   "name": "basic-indexer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Transforms from an array to an indexed object",
   "main": "dist/basic-indexer.node.js",
   "unpkg": "dist/basic-indexer.min.js",
