@@ -105,4 +105,41 @@ describe("BasicIndexer.js", function () {
       ]);
     });
   });
+  describe("getAll", function () {
+    it("Should return te complete indexed collection", function () {
+      const index = new Indexer(
+        [
+          {
+            id: 1,
+            name: "someName",
+          },
+          {
+            id: 3,
+            name: "someName",
+          },
+          {
+            id: 2,
+            name: "someName",
+          },
+        ],
+        "id",
+        true
+      );
+
+      expect(index.getAll()).to.deep.equal({
+        1: {
+          id: 1,
+          name: "someName",
+        },
+        3: {
+          id: 3,
+          name: "someName",
+        },
+        2: {
+          id: 2,
+          name: "someName",
+        },
+      });
+    });
+  });
 });
