@@ -18,6 +18,10 @@ class Indexer {
     });
   }
 
+  getAll() {
+    return this.indexedCollection;
+  }
+
   set(index, object) {
     this.indexedCollection[index] = object;
   }
