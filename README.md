@@ -6,12 +6,12 @@ The objective of this module is to create and manage a basic indexed collection
 
 CommonJS
 ```js
-const BasicIndexer = require("basic-indexer");
+const Indexer = require("basic-indexer").Indexer;
 ```
 
 ES6 module syntax
 ```js
-import BasicIndexer from "basic-indexer";
+import { Indexer } from "basic-indexer";
 ```
 
 Browser import the min.js file.
@@ -25,6 +25,7 @@ Methods:
 
 - constructor(array, key = "id", keepIndex = false)
 - getArray(url, name)
+- getAll()
 - get(indexes)
 - set(index, object)
 
@@ -52,6 +53,8 @@ const index = new Indexer([
 ]);
 
 const values = index.get(1, 3);
+const array = index.getArray()
+const allValues = index.getAll()
 
 ```
 values contains:
@@ -59,6 +62,20 @@ values contains:
   { name: "someName1" },
   { name: "someName3" },
 ]
+
+array contains:
+[
+  { id: 1, name: 'someName1' },
+  { id: 2, name: 'someName2' },
+  { id: 3, name: 'someName3' }
+]
+
+allValues contains:
+{
+  '1': { name: 'someName1' },
+  '2': { name: 'someName2' },
+  '3': { name: 'someName3' }
+}
 
 Keeping the keys
 
@@ -85,6 +102,8 @@ const index = new Indexer(
 );
 
 const values = index.get(1, 2, 3);
+const array = index.getArray()
+const allValues = index.getAll()
 
 ```
 values contains:
@@ -102,3 +121,17 @@ values contains:
     name: "someName",
   }
 ]
+
+array contains:
+[
+  { id: 1, name: 'someName' },
+  { id: 2, name: 'someName' },
+  { id: 3, name: 'someName' }
+]
+
+allValues contains:
+{
+  '1': { id: 1, name: 'someName' },
+  '2': { id: 2, name: 'someName' },
+  '3': { id: 3, name: 'someName' }
+}
