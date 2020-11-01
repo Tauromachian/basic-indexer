@@ -26,7 +26,7 @@ Methods:
 - constructor(array, key = "id", keepIndex = false)
 - getArray(url, name)
 - getAll()
-- get(indexes)
+- get(...indexes)
 - set(index, object)
 
 ### Examples
