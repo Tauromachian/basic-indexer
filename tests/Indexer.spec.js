@@ -181,4 +181,46 @@ describe("BasicIndexer.js", function () {
       });
     });
   });
+
+  describe("getOne", function () {
+    it("Should return the object wich index matches the argument", function () {
+      const index = new Indexer(
+        [
+          {
+            id: 1,
+            name: "someName1",
+          },
+          {
+            id: 3,
+            name: "someName3",
+          },
+          {
+            id: 2,
+            name: "someName2",
+          },
+        ],
+        "id",
+        true
+      );
+
+      expect(index.getOne(2)).to.deep.equal({
+        id: 2,
+        name: "someName2",
+      });
+    });
+    it("Should return 0 if no matches are found to the argumet", function () {
+      const index = new Indexer(
+        [
+          {
+            id: 1,
+            name: "someName1",
+          },
+        ],
+        "id",
+        true
+      );
+
+      expect(index.getOne(2)).to.equal(0);
+    });
+  });
 });
