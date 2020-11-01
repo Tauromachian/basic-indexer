@@ -18,6 +18,13 @@ class Indexer {
     });
   }
 
+  getOne(index) {
+    if (this.indexedCollection[index]) {
+      return this.indexedCollection[index];
+    }
+    return 0;
+  }
+
   getAll() {
     return this.indexedCollection;
   }
